@@ -26,7 +26,7 @@
             stage('deploy') {
             steps {
                 // 
-                sh 'docker run -d -p 8080:9090 Dockerfile'
+                sh 'docker run -d -p 8000:9000 Dockerfile'
             }
 
             post {
