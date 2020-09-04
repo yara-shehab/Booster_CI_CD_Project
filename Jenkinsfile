@@ -25,7 +25,7 @@
 
         stage('deploy') {
           steps {
-            sh 'docker run -d -p 8000:8000 Dockerfile'
+            sh 'docker run -d -p 7070:8000 Dockerfile'
         }
         }
     }
