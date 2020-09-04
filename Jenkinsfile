@@ -2,12 +2,6 @@
     agent {label 'slave'}
     stages {
 
-        stage('preparation') {
-            steps { // checkout the code
-                git 'https://github.com/yara-shehab/Booster_CI_CD_Project' 
-            }
-        }
-
         stage('build image') {
             steps {
               sh 'docker build -t Dockerfile .'
