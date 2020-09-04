@@ -2,8 +2,6 @@
     agent {label 'slave'}
     stages {
 
-        stage('preparation') {
-
         stage('build image') {
             steps {
               sh 'docker build -t Dockerfile .'
