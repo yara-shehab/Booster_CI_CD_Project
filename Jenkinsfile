@@ -4,6 +4,8 @@
 
         stage('build image') {
             steps {
+             
+             sh 'chmod 666 /var/run/docker.sock
               sh 'docker build -t djangoapp .'
             }
             }
