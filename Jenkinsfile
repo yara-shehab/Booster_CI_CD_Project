@@ -4,7 +4,7 @@
 
         stage('build image') {
             steps {
-              sh 'docker build -t Djangoapp .'
+              sh 'docker build -t djangoapp .'
             }
             }
 
@@ -12,14 +12,14 @@
             steps {
               withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
               sh 'docker login --username $USERNAME --password $PASSWORD'
-              sh 'docker push Djangoapp'
+              sh 'docker push djangoapp'
               }
             }
         }
 
         stage('deploy') {
           steps {
-            sh 'docker run -d -p 8000:8000 Djangoapp'
+            sh 'docker run -d -p 8000:8000 djangoapp'
         }
         }
     }
