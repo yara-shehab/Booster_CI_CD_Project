@@ -13,7 +13,8 @@
             steps {
               withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
               sh 'docker login --username $USERNAME --password $PASSWORD'
-              sh 'docker push djangoapp'
+               sh 'docker tag djangoapp:djangoapp new-repo:djangoapp '
+               sh 'docker push new-repo:djangoapp'
               }
             }
         }
