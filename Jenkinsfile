@@ -5,7 +5,7 @@
         stage('build image') {
             steps {
           
-              sh 'docker build -t djangoapp .'
+              sh 'docker build -t yarashehab/djangoapp:v1.0 .'
             }
             }
 
@@ -21,7 +21,7 @@
 
         stage('deploy') {
           steps {
-            sh 'docker run -d -p 8000:8000 djangoapp'
+            sh 'docker run -d -p 8000:8000 yarashehab/djangoapp:v1.0'
         }
         }
     }
