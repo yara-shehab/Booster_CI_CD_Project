@@ -1,7 +1,5 @@
-FROM ubuntu
-RUN apt-get update -qq
-RUN apt-get -y install python3.6
-RUN apt-get -qqy install python3-pip
+FROM python:3.6-buster
+
 
 ADD . /simpleApp
 WORKDIR /simpleApp
