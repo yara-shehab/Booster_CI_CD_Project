@@ -14,7 +14,7 @@
               withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
               sh 'docker login --username $USERNAME --password $PASSWORD'
               
-              sh 'docker push djangoapp:djangoapp'
+              sh 'docker push djangoapp'
               }
             }
         }
