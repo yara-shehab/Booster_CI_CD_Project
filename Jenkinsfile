@@ -1,11 +1,11 @@
- pipeline {
+pipeline {
     agent {label 'slave'}
     stages {
 
         stage('build image') {
             steps {
-             
-              sh 'docker build -t djangoapp .'
+          
+              sh 'docker build -t yarashehab/djangoapp:v1.0 .'
             }
             }
 
@@ -13,14 +13,15 @@
             steps {
               withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
               sh 'docker login --username $USERNAME --password $PASSWORD'
-              sh 'docker push djangoapp'
+              
+              sh 'docker push yarashehab/djangoapp:v1.0'
               }
             }
         }
 
         stage('deploy') {
           steps {
-            sh 'docker run -d -p 7070:8000 djangoapp'
+            sh 'docker run -d -p 7070:8000 yarashehab/djangoapp:v1.0'
         }
         }
     }
